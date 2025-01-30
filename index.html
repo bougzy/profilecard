@@ -1,0 +1,102 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+        .profile-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #007bff;
+        }
+        .profile-card h2 {
+            font-size: 22px;
+            color: #333;
+            margin: 5px 0;
+        }
+        .profile-card h4 {
+            font-size: 16px;
+            color: #007bff;
+            margin: 5px 0;
+        }
+        .profile-card p {
+            font-size: 14px;
+            color: #555;
+            margin: 8px 0;
+        }
+        .social-links {
+            margin-top: 15px;
+        }
+        .social-links a {
+            margin: 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #0056b3;
+        }
+        #utc-time {
+            font-size: 14px;
+            color: #777;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <img src="img/patty.jpeg" alt="Profile Picture" data-testid="profilePicture">
+        <h2 data-testid="fullName">Ubong Patrick</h2>
+        <h4 data-testid="jobTitle">Frontend Developer</h4>
+        <p data-testid="shortBio">Passionate frontend developer with experience in React.js and Next.js. Love building beautiful user interfaces.</p>
+        <p data-testid="currentLocation">Lagos, Nigeria</p>
+        <p data-testid="emailAddress">ubongpatrick@example.com</p>
+        <div class="social-links" data-testid="socialLinks">
+            <a href="https://github.com/bougzy" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/ubongpatrick" target="_blank">LinkedIn</a>
+            <a href="https://x.com/IamPatrickUbong" target="_blank">Twitter</a>
+        </div>
+        <p data-testid="currentTimeUTC" id="utc-time"></p>
+    </div>
+    
+    <script>
+        function updateTime() {
+            document.getElementById("utc-time").textContent = new Date().toUTCString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
